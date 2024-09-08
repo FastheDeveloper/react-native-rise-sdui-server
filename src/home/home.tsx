@@ -1,11 +1,24 @@
+import { goBack } from "@rise-tools/kit-expo-router/server";
+import { Image } from "@rise-tools/kit-tamagui/server";
 import {
+	Avatar,
+	AvatarImage,
 	H1,
 	H3,
 	H6,
+	H5,
+	H4,
+	RiseForm,
+	SubmitButton,
 	Text,
+	TextField,
+	toast,
 	XStack,
 	YStack,
 } from "@rise-tools/kitchen-sink/server";
+import { Svg } from "@rise-tools/kit-svg/server";
+import { response } from "@rise-tools/react";
+import { UserIcon, Hamburger } from "~/components/UserIcon";
 
 export const models = {
 	HeaderUI,
@@ -18,16 +31,37 @@ export const models = {
 
 function HeaderUI() {
 	return (
-		<YStack backgroundColor={"red"}>
-			<Text>Header Ui</Text>
-		</YStack>
+		<XStack
+			alignItems={"center"}
+			padding={"$2"}
+			justifyContent={"space-between"}>
+			<XStack>
+				<UserIcon width={70} height={60} />
+				<XStack alignItems={"center"}>
+					<YStack>
+						<Text color={"#838282"}>Hello,</Text>
+						<H3 color={"#0F0F0F"} fontWeight={"700"}>
+							Ayodamola Seriki
+						</H3>
+					</YStack>
+				</XStack>
+			</XStack>
+
+			<Hamburger width={32} height={32} />
+		</XStack>
 	);
 }
 
 function SearchUI() {
 	return (
 		<YStack backgroundColor={"blue"}>
-			<H1 color={"black"}>Search Ui</H1>
+			<RiseForm onSubmit={() => {}}>
+				<TextField
+					id="noes"
+					label="Additional comments"
+					backgroundColor={"aqua"}
+				/>
+			</RiseForm>
 		</YStack>
 	);
 }

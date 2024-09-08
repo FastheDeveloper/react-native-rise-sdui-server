@@ -194,41 +194,41 @@ if (process.env.NODE_ENV === "development") {
 
    - install the following dependencies `@rise-tools/kit-expo-router` `@rise-tools/kitchen-sink` `@rise-tools/react` `@rise-tools/ws-client` `expo-haptics`
 
-- Create `modelSource.ts`, this defines the connection to the WebSocket server created by in the server repository:
+   - Create `modelSource.ts`, this defines the connection to the WebSocket server created by in the server repository:
 
-  ```Typescript
+   ```Typescript
        `modalSource.ts`
        import { createWSModelSource } from "@rise-tools/ws-client";
 
        export const modelSource = createWSModelSource("ws://192.168.0.213:3015");
 
-  ```
+   ```
 
-- Create `riseActions.ts`, this defines the local action library for the app:
+   - Create `riseActions.ts`, this defines the local action library for the app:
 
-  ```Typescript
-      `riseActions.ts`
-      import { useExpoRouterActions } from "@rise-tools/kit-expo-router";
-      import {
-          useHapticsActions,
-          useLinkingActions,
-          useToastActions,
-      } from "@rise-tools/kitchen-sink";
+   ```Typescript
+       `riseActions.ts`
+       import { useExpoRouterActions } from "@rise-tools/kit-expo-router";
+       import {
+           useHapticsActions,
+           useLinkingActions,
+           useToastActions,
+       } from "@rise-tools/kitchen-sink";
 
-      export function useRiseActions() {
-          return {
-              ...useHapticsActions(),
-              ...useLinkingActions(),
-              ...useToastActions(),
-              ...useExpoRouterActions(),
-          };
-      }
+       export function useRiseActions() {
+           return {
+               ...useHapticsActions(),
+               ...useLinkingActions(),
+               ...useToastActions(),
+               ...useExpoRouterActions(),
+           };
+       }
 
-  ```
+   ```
 
-- Create `riseComponents.ts`, this defines the local component library for the app:
+   - Create `riseComponents.ts`, this defines the local component library for the app:
 
-  ```Typescript
+   ```Typescript
 
        import {
            FormComponents,
@@ -248,8 +248,8 @@ if (process.env.NODE_ENV === "development") {
            ...TamaguiComponents,
            };
 
-  ```
+   ```
 
-- Run app with `yarn ios` or `yarn android` or `yarn start` to open with expo on your phisican device
+   - Run app with `yarn ios` or `yarn android` or `yarn start` to open with expo on your phisican device
 
-<!-- <img alt="Bare App " src="./assets//bareHome.png" width="300" /> -->
+   <img alt="Bare App " src="./assets/tutorial//baseHome.png" width="300" />
