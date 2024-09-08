@@ -1,0 +1,11 @@
+{
+	"extends": "@rise-tools/preset-typescript",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["*"],
+			"~src/*": ["./src/*"],
+			"~asset/*": ["./assets/*"]
+		}
+	}
+}
