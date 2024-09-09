@@ -16,6 +16,7 @@ import {
 	XStack,
 	YStack,
 	InputField,
+	DraggableFlatList,
 } from "@rise-tools/kitchen-sink/server";
 import { Svg } from "@rise-tools/kit-svg/server";
 import { response } from "@rise-tools/react";
@@ -29,6 +30,10 @@ import {
 	ClockIcon,
 	StarIcon,
 	CarIcon,
+	PackageIcon,
+	ErrandIcon,
+	Ridesicon,
+	ResturantIcon,
 } from "~/components/UserIcon";
 
 export const models = {
@@ -40,6 +45,24 @@ export const models = {
 	HomeScreen,
 };
 
+const myProducts = [
+	{
+		name: "Package",
+		icon: <PackageIcon width={32} height={32} />,
+	},
+	{
+		name: "Rides",
+		icon: <Ridesicon width={35} height={32} />,
+	},
+	{
+		name: "Errands",
+		icon: <ErrandIcon width={32} height={32} />,
+	},
+	{
+		name: "Resturant",
+		icon: <ResturantIcon width={32} height={32} />,
+	},
+];
 function HeaderUI() {
 	return (
 		<XStack
@@ -90,18 +113,20 @@ function NearbyUi() {
 		<YStack marginTop={"$4"} gap={"$2"}>
 			<XStack alignItems={"flex-end"} justifyContent={"space-between"}>
 				<H3 color={"black"} fontWeight={"500"}>
-					Nearby resturants
+					Nearby Resturants
 				</H3>
-				<H5 ccolor={"#838282"} fontSize={12}>
+				<H3 color={"#838282"} fontSize={20}>
 					See all
-				</H5>
+				</H3>
 			</XStack>
 
 			<XStack justifyContent={"space-between"} alignItems={"center"}>
 				<XStack gap={"$2"} alignItems={"center"}>
 					<SmallFork width={34} height={34} />
 					<YStack gap={"$2"}>
-						<H6 color={"#000"}>The Place Restaurant</H6>
+						<H6 color={"#000"} fontWeight={"500"}>
+							The Place Restaurant
+						</H6>
 						<XStack gap={"$4"} alignItems={"center"}>
 							<XStack gap={"$2"}>
 								<ClockIcon width={16} height={16} />
@@ -147,8 +172,38 @@ function BannerUi() {
 
 function ProductUi() {
 	return (
-		<YStack backgroundColor={"purple"}>
-			<Text>Our Top Product</Text>
+		<YStack gap={"$2"}>
+			<XStack alignItems={"flex-end"} justifyContent={"space-between"}>
+				<H5 color={"black"} fontWeight={"500"}>
+					Our Products
+				</H5>
+				<H3 color={"#838282"} fontSize={20}>
+					See all
+				</H3>
+			</XStack>
+			<XStack marginBottom={"$4"}>
+				{myProducts.map((item) => (
+					<YStack
+						key={item.name}
+						justifyContent="space-between"
+						alignItems="center"
+						flex={1}>
+						<YStack alignItems="center">
+							<YStack
+								backgroundColor="#ECECEC"
+								borderRadius={"$4"}
+								padding={"$4"}
+								marginVertical={"$2"}>
+								{item.icon}
+							</YStack>
+							<Text fontSize={14} color={"#0F0F0F"}>
+								{item.name}
+							</Text>
+						</YStack>
+					</YStack>
+				))}
+			</XStack>
+
 			<XStack gap="$8">
 				<Text>🌚</Text>
 				<Text>🌚</Text>
