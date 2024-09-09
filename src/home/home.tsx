@@ -203,27 +203,96 @@ function ProductUi() {
 					</YStack>
 				))}
 			</XStack>
-
-			<XStack gap="$8">
-				<Text>🌚</Text>
-				<Text>🌚</Text>
-				<Text>🌚</Text>
-				<Text>🌚</Text>
-				<Text>🌚</Text>
-			</XStack>
 		</YStack>
 	);
 }
 
 function TripUi() {
 	return (
-		<YStack gap="$8" backgroundColor={"orange"}>
-			<Text>Your Trips</Text>
-			<Text>🌚</Text>
-			<Text>🌚</Text>
-			<Text>🌚</Text>
-			<Text>🌚</Text>
-			<Text>🌚</Text>
+		<YStack gap={"$2"}>
+			<XStack alignItems={"flex-end"} justifyContent={"space-between"}>
+				<H5 color={"black"} fontWeight={"500"}>
+					Your trips
+				</H5>
+				<H3 color={"#838282"} fontSize={20}>
+					See all
+				</H3>
+			</XStack>
+			<XStack justifyContent={"space-between"} alignItems={"center"}>
+				<XStack gap={"$2"} alignItems={"center"}>
+					<SmallFork width={34} height={34} />
+					<YStack gap={"$2"}>
+						<H6 color={"#000"} fontWeight={"500"}>
+							So Fresh
+						</H6>
+						<XStack gap={"$4"} alignItems={"center"}>
+							<XStack gap={"$2"}>
+								<ClockIcon width={16} height={16} />
+								<Text color={"#838282"}>1hr drive</Text>
+							</XStack>
+							<XStack gap={"$2"}>
+								<StarIcon width={16} height={16} />
+								<Text color={"#838282"}>4</Text>
+							</XStack>
+						</XStack>
+					</YStack>
+				</XStack>
+				<H6 color={"#000"} fontWeight={"500"}>
+					₦12,000.00
+				</H6>
+			</XStack>
+			<XStack
+				justifyContent={"space-between"}
+				alignItems={"center"}
+				marginTop={"$4"}>
+				<XStack gap={"$2"} alignItems={"center"}>
+					<Ridesicon width={34} height={34} />
+					<YStack gap={"$2"}>
+						<H6 color={"#000"} fontWeight={"500"}>
+							Film house cinema
+						</H6>
+						<XStack gap={"$4"} alignItems={"center"}>
+							<XStack gap={"$2"}>
+								<ClockIcon width={16} height={16} />
+								<Text color={"#838282"}>15mins drive</Text>
+							</XStack>
+							<XStack gap={"$2"}>
+								<StarIcon width={16} height={16} />
+								<Text color={"#838282"}>2.5</Text>
+							</XStack>
+						</XStack>
+					</YStack>
+				</XStack>
+				<H6 color={"#000"} fontWeight={"500"}>
+					₦5,000.00
+				</H6>
+			</XStack>
+			<XStack
+				justifyContent={"space-between"}
+				alignItems={"center"}
+				marginTop={"$4"}>
+				<XStack gap={"$2"} alignItems={"center"}>
+					<Ridesicon width={34} height={34} />
+					<YStack gap={"$2"}>
+						<H6 color={"#000"} fontWeight={"500"}>
+							iFitness Gym
+						</H6>
+						<XStack gap={"$4"} alignItems={"center"}>
+							<XStack gap={"$2"}>
+								<ClockIcon width={16} height={16} />
+								<Text color={"#838282"}>10min drive</Text>
+							</XStack>
+							<XStack gap={"$2"}>
+								<StarIcon width={16} height={16} />
+								<Text color={"#838282"}>2.5</Text>
+							</XStack>
+						</XStack>
+					</YStack>
+				</XStack>
+				<H6 color={"#000"} fontWeight={"500"}>
+					₦3,000.00
+				</H6>
+			</XStack>
 		</YStack>
 	);
 }
