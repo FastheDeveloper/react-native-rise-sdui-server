@@ -1,4 +1,15 @@
-# Rise Server-Driven UI Project
+<p align="center">
+  <a href="https://rise.tools/">
+    <img alt="Rise Tools" src="https://rise.tools/img/logo.svg" width="60" />
+  </a>
+</p>
+
+<h1 align="center">
+ FasTheDeveloper's Guide to Server Defined Rendering for React Native Using Rise
+
+<h3 align="center">
+React Native • TypeScript • Expo • Expo Router • Rise • Tamagui  
+</h3>
 
 ## 🚀 Introduction
 
@@ -378,11 +389,11 @@ function HeaderUI() {
 }
 ```
 
-##### This is an image of the base output
+##### This is an image of the header output
 
 <img alt="Bare App " src="./assets/tutorial/headerUpdate.png" width="300" />
 
-To finalize the Homescreen design, we'll use this code, which will automatically update the app.
+To finalize the design, we'll update the other components in our homescreen component, which will automatically update the app.
 
 ```typescript
 import {
@@ -687,7 +698,7 @@ function HomeScreen() {
 }
 ```
 
-##### This is an image of the base output
+##### This is an image of the final output
 
 <img alt="Bare App " src="./assets/tutorial/final.png" width="300" />
 
@@ -695,6 +706,6 @@ A common use case for Server Driven Rendering is managing promotional content. F
 
 <img alt="Bare App " src="./assets/tutorial/bannerHidden.png"  />
 
-##### This is an image of the base output
+##### This is an image of the hidden banner
 
 <img alt="Bare App " src="./assets/tutorial/bannerHiddenUi.png" width="300" />
