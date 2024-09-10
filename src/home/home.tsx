@@ -292,7 +292,7 @@ function HomeScreen() {
 			<HeaderUI />
 			<SearchUI />
 			<NearbyUi />
-			<BannerUi />
+			{/* <BannerUi /> */}
 			<ProductUi />
 			<TripUi />
 		</YStack>
