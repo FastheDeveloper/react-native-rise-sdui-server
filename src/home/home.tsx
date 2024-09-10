@@ -294,7 +294,7 @@ function HomeScreen() {
 			<NearbyUi />
 			<BannerUi />
 			<ProductUi />
-			<TripUi />
+			{/* <TripUi /> */}
 		</YStack>
 	);
 }
