@@ -709,3 +709,29 @@ A common use case for Server Driven Rendering is managing promotional content. F
 ##### This is an image of the hidden banner
 
 <img alt="Bare App " src="./assets/tutorial/bannerHiddenUi.png" width="300" />
+
+## Deploying the Server to Production
+
+To deploy the Rise server, we will use `Render` for hosting.
+
+### Create new Web service
+
+<img alt="Bare App " src="./assets/tutorial/renderNew.png"  />
+
+<img alt="Bare App " src="./assets/tutorial/settRender.png"  />
+
+<img alt="Bare App " src="./assets/tutorial/port.png"  />
+
+## Dynamic React Native App Updates from Server
+
+Update the modelSource.ts file in the React Native application to use the new render service link.
+
+```typescript
+export const modelSource = createWSModelSource(
+	"https://my-render-link.com/:3015"
+);
+```
+
+With any update to the main branch of the server, the server will automatically redeploy. This will trigger an automatic update of the React Native app as well.
+
+## Building and Testing the Mobile App for Production
