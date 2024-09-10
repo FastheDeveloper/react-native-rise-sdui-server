@@ -1,25 +1,14 @@
-import { goBack } from "@rise-tools/kit-expo-router/server";
-import { Image } from "@rise-tools/kit-tamagui/server";
 import {
-	Avatar,
-	AvatarImage,
-	H1,
 	H3,
 	H6,
 	H5,
-	H4,
 	RiseForm,
-	SubmitButton,
 	Text,
-	TextField,
-	toast,
 	XStack,
 	YStack,
 	InputField,
-	DraggableFlatList,
 } from "@rise-tools/kitchen-sink/server";
-import { Svg } from "@rise-tools/kit-svg/server";
-import { response } from "@rise-tools/react";
+
 import {
 	UserIcon,
 	Hamburger,
