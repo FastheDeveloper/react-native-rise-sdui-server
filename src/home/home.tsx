@@ -289,7 +289,7 @@ function TripUi() {
 function HomeScreen() {
 	return (
 		<YStack paddingHorizontal={"$4"}>
-			{/* <HeaderUI /> */}
+			<HeaderUI />
 			<SearchUI />
 			<NearbyUi />
 			<BannerUi />
