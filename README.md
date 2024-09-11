@@ -98,7 +98,7 @@ SDUI is an architectural pattern where the server defines and controls the user 
 
 We will work with this UI focusing on creating a server-side UI and implementing it in a React Native application. Follow the tutorial sections to build your SDUI-powered app step by step.
 
-   <img alt="Bare App " src="./assets/tutorial/final.png" width="300" />
+![Final App](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rcqtldxwad741fjibmcq.png)
 
 ### Setting Up Rise Server
 
@@ -226,11 +226,7 @@ function HomeScreen() {
 
 An object named models is exported, containing references to various UI components. This object is used for dynamic rendering and to organize components for easier access.
 
-<!-- ![alt text](assets/tutorial//HomeServer.png) -->
-
 This component breaks down the `HomeScreen` into several distinct components: `HeaderUi`, `SearchUi`, `NearbyUi`, `BannerUi`, `ProductUi`, and `TripUi`. These components can be used individually on the mobile/client side or combined to form the complete `HomeScreen`. By using the main `HomeScreen` in the client app, we can dynamically rearrange its structure from the server.
-
-<!-- ![alt text](assets/tutorial/server.png) -->
 
 ### Setting Up `server.ts`
 
@@ -375,9 +371,7 @@ export default function Home() {
 
 ```
 
-##### This is an image of the base output
-
-<img alt="Bare App " src="./assets/tutorial//baseHome.png" width="300" />
+![Base Home](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/esmmsrh3r5r8vbd5sv49.png)
 
 ## Updating React Native Application with Server update
 
@@ -408,9 +402,7 @@ function HeaderUI() {
 }
 ```
 
-##### This is an image of the header output
-
-<img alt="Bare App " src="./assets/tutorial/headerUpdate.png" width="300" />
+![Header Updated](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ydnvmforzqhrl9bgn2qg.png)
 
 To finalize the design, we'll update the other components in our homescreen component, which will automatically update the app.
 
@@ -717,19 +709,15 @@ function HomeScreen() {
 }
 ```
 
-##### This is an image of the final output
-
-<img alt="Bare App " src="./assets/tutorial/final.png" width="300" />
+![Final output](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/d5mkl0t0t5noo9rpk8mn.png)
 
 <br>
 A common use case for Server Driven Rendering is managing promotional content. For example, if our `BannerUi` represents promotional content that needs to be hidden, you simply need to delete or comment it out on the server. This change will automatically remove the promotional content from the React Native application.
 <br>
 
-<img alt="Bare App " src="./assets/tutorial/bannerHidden.png"  />
+![hiddenbannercode](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3u00yqusur6n5e4o6vai.png)
 
-##### This is an image of the hidden banner
-
-<img alt="Bare App " src="./assets/tutorial/bannerHiddenUi.png" width="300" />
+![Hidden banner](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ujc50b1jmdhzsmhikme4.png)
 
 ## Deploying the Server to Production
 
@@ -737,11 +725,11 @@ To deploy the Rise server, we will use <a href="https://render.com/"> `Render`</
 
 ### Create new Web service
 
-<img alt="Bare App " src="./assets/tutorial/renderNew.png"  />
+![New Render](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/w96d812yd0lhxqznblq9.png)
 
-<img alt="Bare App " src="./assets/tutorial/settRender.png"  />
+![Setting](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9gzl1ybpk9q64364klch.png)
 
-<img alt="Bare App " src="./assets/tutorial/port.png"  />
+![port](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/y42aa6599nzrxr7xmucw.png)
 
 ## Dynamic React Native App Updates from Server
 
