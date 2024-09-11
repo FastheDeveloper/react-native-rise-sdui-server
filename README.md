@@ -11,9 +11,13 @@
 React Native • TypeScript • Expo • Expo Router • Rise • Tamagui  
 </h3>
 
+Server Repository : https://github.com/FastheDeveloper/react-native-rise-sdui-server
+<br>
+Mobile Repository : https://github.com/FastheDeveloper/react-native-rise-sdui-mobile
+
 ## 🚀 Introduction
 
-This repository contains the implementation for Server-Driven UI (SDUI) development using Rise Tools. It's designed to seamlessly update React Native applications, providing dynamic UI components that can be updated in production without rebuilding or redeploying your app.
+This article contains the implementation for Server-Driven UI (SDUI) development using Rise Tools. It's designed to seamlessly update React Native applications, providing dynamic UI components that can be updated in production without rebuilding or redeploying your app.
 
 ## 🎯 What You'll Learn
 
@@ -38,22 +42,22 @@ Before diving in, make sure you have:
 
 1. **Introduction to Server-Driven Development**
 
-- Definition and core concepts of Server-Driven UI (SDUI)
-- Benefits and use cases for SDUI
-- Real-world examples of apps utilizing SDUI and their success stories
+   - Definition and core concepts of Server-Driven UI (SDUI)
+   - Benefits and use cases for SDUI
+   - Real-world examples of apps utilizing SDUI and their success stories
 
 2. **Setting Up Rise Server**
 
-- Project setup & folder structure
-- Server configuration and initialization
-- Creating Base HomeScreen Model
+   - Project setup & folder structure
+   - Server configuration and initialization
+   - Creating Base HomeScreen Model
 
 3. **Setting Up Your Expo Project**
 
 - Cloning existing expo template
-- Creating a new Expo project
-- Essential configurations and dependencies
-- Integrating the HomeScreen model from the server
+  - Creating a new Expo project
+  - Essential configurations and dependencies
+  - Integrating the HomeScreen model from the server
 
 5. **Updating React Native Application with Server update**
 6. **Deploying the Server to Production**
@@ -81,6 +85,15 @@ SDUI is an architectural pattern where the server defines and controls the user 
 6. Feature flags: Enable or disable features remotely
 7. Reduced app size: Some UI logic moves to the server
 
+### Why Server Defined Rendering is Superior to Over-The-Air updates and Update Prompts
+
+1. Instant Updates: Unlike OTA updates or update prompts, SDR ensures all users are always on the latest version, eliminating fragmentation and version compatibility issues.
+2. Improved User Experience: SDR removes the need for intrusive update prompts or download waiting times, providing a seamless experience.
+3. Enhanced Security and Control: With logic on the server, SDR offers better protection against reverse engineering and unauthorized modifications.
+4. Flexibility and Agility: SDR allows for rapid iterations and A/B testing without the need for app store approvals or user actions.
+5. Reduced Client-Side Complexity: By moving logic to the server, SDR simplifies client-side code, potentially improving app performance and reducing bugs.
+6. Data-Driven Improvements: With all users on the same version, it's easier to gather consistent analytics and make data-driven decisions.
+
 ## Setting Up Rise Server
 
 We will work with this UI focusing on creating a server-side UI and implementing it in a React Native application. Follow the tutorial sections to build your SDUI-powered app step by step.
@@ -95,32 +108,17 @@ To create a new Rise server project, follow these steps:
 2. Run the following command:
    `npm create rise@latest`
 
-   ```
-   my-rise-project/
-   ├── node_modules
-   ├── src/
-   │ ├── models.tsx
-   │ ├── server.ts
-   ├── package.json
-   ├── tsconfig.json
-   └── README.md
-   ```
+This is the resulting folder structure
 
-### Setting Up `server.ts`
-
-```javascript
-import { setupRiseTools } from "@rise-tools/cli";
-import { createWSServer } from "@rise-tools/server";
-
-import { models as mainModal } from "~src/home/home"; // import models from `Homescreen.tsx`
-const port = Number(process.env.PORT || "3015");
-
-const models = { ...mainModal };
-const server = createWSServer(models, port);
-
-if (process.env.NODE_ENV === "development") {
-	setupRiseTools({ server });
-}
+```
+my-rise-project/
+├── node_modules
+├── src/
+│ ├── models.tsx
+│ ├── server.ts
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
 ### Setting up Server for Home screen
@@ -224,11 +222,32 @@ function HomeScreen() {
 }
 ```
 
+#### Models Object:
+
+An object named models is exported, containing references to various UI components. This object is used for dynamic rendering and to organize components for easier access.
+
 <!-- ![alt text](assets/tutorial//HomeServer.png) -->
 
 This component breaks down the `HomeScreen` into several distinct components: `HeaderUi`, `SearchUi`, `NearbyUi`, `BannerUi`, `ProductUi`, and `TripUi`. These components can be used individually on the mobile/client side or combined to form the complete `HomeScreen`. By using the main `HomeScreen` in the client app, we can dynamically rearrange its structure from the server.
 
 <!-- ![alt text](assets/tutorial/server.png) -->
+
+### Setting Up `server.ts`
+
+```javascript
+import { setupRiseTools } from "@rise-tools/cli";
+import { createWSServer } from "@rise-tools/server";
+
+import { models as mainModal } from "~src/home/home"; // import models from `Homescreen.tsx`
+const port = Number(process.env.PORT || "3015");
+
+const models = { ...mainModal };
+const server = createWSServer(models, port);
+
+if (process.env.NODE_ENV === "development") {
+	setupRiseTools({ server });
+}
+```
 
 ## Setting Up Your Expo Project
 
@@ -261,7 +280,7 @@ Then, install the necessary dependencies:
 
 #### Create modelSource.ts
 
-Next, create a `modelSource.ts` file to define the connection to the WebSocket server provided by the server repository.
+Next, create a `modelSource.ts` file to define the connection to the WebSocket server provided by the server.
 
 ```Typescript
 import { createWSModelSource } from "@rise-tools/ws-client";
@@ -320,9 +339,9 @@ export const components = {
 
 #### Integrating the HomeScreen model from the server
 
-1. Run Server with `npm run dev`
+1. In the server terminal, run Server with `npm run dev` to start the server
 
-2. Run the app using the following commands:
+2. In the react native app terminal, run the app using the following commands:
    `yarn ios` to open the app on an iOS simulator
    `yarn android` to open the app on an Android emulator
    `yarn start` to open the app with Expo on your physical device
@@ -702,7 +721,9 @@ function HomeScreen() {
 
 <img alt="Bare App " src="./assets/tutorial/final.png" width="300" />
 
+<br>
 A common use case for Server Driven Rendering is managing promotional content. For example, if our `BannerUi` represents promotional content that needs to be hidden, you simply need to delete or comment it out on the server. This change will automatically remove the promotional content from the React Native application.
+<br>
 
 <img alt="Bare App " src="./assets/tutorial/bannerHidden.png"  />
 
@@ -712,7 +733,7 @@ A common use case for Server Driven Rendering is managing promotional content. F
 
 ## Deploying the Server to Production
 
-To deploy the Rise server, we will use `Render` for hosting.
+To deploy the Rise server, we will use <a href="https://render.com/"> `Render`</a> for hosting.
 
 ### Create new Web service
 
@@ -735,3 +756,21 @@ export const modelSource = createWSModelSource(
 With any update to the main branch of the server, the server will automatically redeploy. This will trigger an automatic update of the React Native app as well.
 
 ## Building and Testing the Mobile App for Production
+
+To build and run the iOS app on your physical device in release configuration:
+`npx expo run:ios --configuration Release --device`
+This command compiles the app with optimizations enabled and deploys it to your connected iOS device.
+
+To create a release variant of your Android application:
+`npx expo run:android --variant release`
+This command generates an optimized APK or App Bundle suitable for distribution and installation
+
+Update your server and monitor the deployment process on Render. Once the deployment is complete, the app will update accordingly.
+
+## 🤝 Contributing
+
+We welcome contributions to enhance this tutorial. Feel free to submit issues or pull requests.
+
+<!-- ## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details. -->
